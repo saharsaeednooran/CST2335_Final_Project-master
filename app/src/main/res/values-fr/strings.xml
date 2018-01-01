@@ -1,0 +1,36 @@
+<resources>
+<string name="app_name">finalProject</string>
+
+    <!-- Actvity Tracker -->
+<string name="activityTrackerButtonText">tracker d\'activité</string>
+<string name="startTrackingButton">Commencez à suivre vos exercices</string>
+<string name="welcome_text">Bienvenue sur Activity Tracker</string>
+<string name="selectTextView">Choisissez l\'exercice</string>
+<string name="runningTextView">Courir</string>
+<string name="walkingTextView">Marcher</string>
+<string name="swimmingTextView">La natation</string>
+<string name="bikingTextView">Cyclisme</string>
+<string name="skatingTextView">Patinage</string>
+<string name="durationTextView">Durée</string>
+<string name="commentsTextView">commentaires</string>
+<string name="commentsEditText">Comment était votre exercice?</string>
+<string name="progressTextView">Le progrès</string>
+<string name="addActivityButton">Ajouter une activité</string>
+<string name="addNewActivityButtonText">Ajouter une nouvelle activité</string>
+<string name="viewHistoryButtonText">Afficher l\'historique des activités</string>
+<string name="activityHistoryTextView">Votre historique d\'activité</string>
+<string name="activityDetailsTextView">Détails de l\'activité</string>
+<string name="activityLabel">Activité</string>
+<string name="editButton">Modifier</string>
+<string name="deleteButton">Effacer</string>
+<string name="sortByDateButton">Trier par date</string>
+<string name="sortByTime">Trier par heure</string>
+<string name="monthlyStatusButton">Afficher le statut mensuel</string>
+<string name="monthStatusTextView">Rapport d\'état mensuel</string>
+<string name="CurrentMonthLabel">Temps passé ce mois-ci:</string>
+<string name="prevMonthLabel">Temps passé le mois dernier:</string>
+<string name="okButton">OK</string>
+<string name="cancelButton">Annuler</string>
+<string name="resetButton">Réinitialiser</string>
+<string name="backButton">Retour à la maison</string>
+</resources>

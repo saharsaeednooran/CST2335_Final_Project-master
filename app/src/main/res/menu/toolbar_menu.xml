@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/activity_tracker_activity"
+        android:title="@string/activityTrackerButtonText"
+        android:icon="@drawable/exercise"
+        android:orderInCategory="101"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/automobile_activity"
+        android:title="@string/automobileButtonText"
+        android:icon="@drawable/car"
+        android:orderInCategory="102"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/nutrition_tracker_activity"
+        android:title="@string/nutritionTrackerButtonText"
+        android:icon="@drawable/food"
+        android:orderInCategory="103"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/about"
+        android:title="About"
+        android:orderInCategory="103"
+        app:showAsAction="never" />
+
+</menu>

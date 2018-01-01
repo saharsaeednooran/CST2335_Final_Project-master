@@ -1,0 +1,87 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/activityHistoryTextView"
+        android:text="@string/activityHistoryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textSize="26sp" />
+
+    <ListView
+        android:id="@+id/activityListView"
+        android:layout_width="300dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="60dp"
+         />
+
+
+    <Button
+        android:id="@+id/sortByDateButton"
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/holo_blue_bright"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:text="@string/sortByDateButton"
+        android:textColor="@color/white" />
+
+
+    <Button
+        android:id="@+id/sortByTimeButton"
+        android:layout_width="65dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/sortByDateButton"
+        android:background="@android:color/holo_blue_bright"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:text="@string/sortByTime"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/addActivityButton"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/sortByTimeButton"
+        android:background="@android:color/holo_blue_bright"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:text="@string/addActivityButton"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/viewMonthlyStatusButton"
+        android:layout_width="85dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/addActivityButton"
+
+        android:background="@android:color/holo_blue_bright"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:text="@string/monthlyStatusButton"
+        android:textColor="@color/white" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/activityListView"
+        android:layout_toEndOf="@+id/activityListView" />
+
+
+</RelativeLayout>
+

@@ -1,0 +1,186 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/selectTextView"
+        android:text="@string/selectTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/bikingImageButton"
+        android:layout_marginTop="18dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/durationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/bikingImageButton"
+        android:layout_below="@+id/bikingImageButton"
+        android:layout_marginTop="87dp"
+        android:text="@string/durationTextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/skatingImageButton"
+        android:layout_alignStart="@+id/durationTextView"
+        android:layout_below="@+id/progressTextView"
+        android:backgroundTint="@color/colorPrimary"
+        android:progressTint="@android:color/holo_orange_light"
+        android:thumbTint="@android:color/holo_blue_bright"
+        android:max="120"
+        android:maxHeight="20dp"
+        android:minHeight="20dp" />
+
+    <TextView
+        android:id="@+id/progressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/durationTextView"
+        android:layout_toEndOf="@+id/runningImageButton"
+        android:text="@string/progressTextView" />
+
+    <ImageButton
+        android:id="@+id/bikingImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/selectTextView"
+        android:layout_marginTop="18dp"
+        android:layout_toStartOf="@+id/runningImageButton"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/biking"
+        android:background="@drawable/borderselector"/>
+
+    <ImageButton
+        android:id="@+id/runningImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/bikingImageButton"
+        android:layout_toStartOf="@+id/swimmingImageButton"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/running"
+        android:background="@drawable/borderselector"/>
+
+    <ImageButton
+        android:id="@+id/swimmingImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/runningImageButton"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/swimming"
+        android:background="@drawable/borderselector"/>
+
+    <ImageButton
+        android:id="@+id/walkingImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/swimmingImageButton"
+        android:layout_toEndOf="@+id/swimmingImageButton"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/walking"
+        android:background="@drawable/borderselector"/>
+
+    <ImageButton
+        android:id="@+id/skatingImageButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignTop="@+id/walkingImageButton"
+        android:layout_toEndOf="@+id/walkingImageButton"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/skating"
+        android:background="@drawable/borderselector"/>
+
+    <TextView
+        android:id="@+id/commentsTextView"
+        android:text="@string/commentsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/seekBar"
+        android:layout_below="@+id/seekBar"
+        android:layout_marginTop="51dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/commentsEditText"
+        android:hint="@string/commentsEditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/commentsTextView"
+        android:layout_below="@+id/commentsTextView"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/addActivityButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_toEndOf="@+id/swimmingImageButton"
+        android:background="@android:color/holo_blue_bright"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:text="@string/addActivityButton"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/minTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/seekBar"
+        android:layout_below="@+id/durationTextView"
+        android:layout_marginStart="13dp"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/maxTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/durationTextView"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/commentsEditText"
+        android:text="120" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addActivityButton"
+        android:layout_alignBottom="@+id/addActivityButton"
+        android:layout_alignEnd="@+id/selectTextView"
+        android:background="@android:color/holo_blue_bright"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp"
+        android:text="@string/backButton"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>

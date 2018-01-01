@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activityDetailsTextView"
+        android:text="@string/activityDetailsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/activityLabelTextView"
+        android:text="@string/activityLabel"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/black"
+        android:paddingRight="5dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/activityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_bright"
+        android:layout_marginTop="90dp"
+        android:layout_toEndOf="@id/activityLabelTextView"
+        android:layout_alignParentEnd="true"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/durationLabelTextView"
+        android:text="@string/durationTextView"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/black"
+        android:paddingRight="5dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/durationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_bright"
+        android:layout_marginTop="150dp"
+        android:layout_toEndOf="@id/durationLabelTextView"
+        android:layout_alignParentEnd="true"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/commentsLabelTextView"
+        android:text="@string/commentsTextView"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/black"
+        android:paddingRight="5dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/commentsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_blue_bright"
+        android:layout_marginTop="210dp"
+        android:layout_toEndOf="@id/durationLabelTextView"
+        android:layout_alignParentEnd="true"
+        android:textSize="20sp" />
+
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/editButton" />
+
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:text="@string/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/deleteButton"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/cancelButton" />
+
+
+</RelativeLayout>
