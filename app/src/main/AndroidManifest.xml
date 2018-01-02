@@ -20,6 +20,10 @@
         <activity android:name=".ActivityTrackerActivity" />
         <activity android:name=".HouseThermostatActivity" />
         <activity android:name=".NutritionTrackerActivity" />
+        <activity android:name=".ActivityAddActivity" />
+        <activity android:name=".ActivityViewHistory" />
+        <activity android:name=".ActivityDetails" />
+        <activity android:name=".ActivityStats" />
 
     </application>
 

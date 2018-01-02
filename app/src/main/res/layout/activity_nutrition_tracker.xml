@@ -1,9 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rwmol.cst2335_final_project.NutritionTrackerActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.rwmol.cst2335_final_project.NutritionTrackerActivity"
+    android:id="@+id/content">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/current_daily_calories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp">
+            <TextView
+                android:text="@string/nutrition_average_calorie_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/average_daily_calories_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/average_daily_calories"
+            android:layout_below="@id/current_daily_calories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp">
+            <TextView
+                android:text="@string/nutrition_last_day_added_label"
+                android:id="@+id/last_date_added_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/nutrition_last_day_added_calories_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/daily_food_list_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daily_food_values_progress"
+            android:layout_above="@id/show_full_food_list"
+            android:layout_margin="6dp"
+            >
+            <FrameLayout
+                android:id="@+id/nutrition_lists_fragment_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/add_food_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:text="@string/nutrition_add_food"
+            />
+
+        <Button
+            android:id="@+id/show_full_food_list"
+            android:text="@string/nutrition_show_full_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            />
+
+        <Button
+            android:id="@+id/show_summary_list"
+            android:text="@string/nutrition_show_summary_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/show_full_food_list"
+            android:layout_alignParentBottom="true"
+            />
+
+        <ProgressBar
+            android:id="@+id/daily_food_values_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:visibility="invisible"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/average_daily_calories"
+             />
+
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
+

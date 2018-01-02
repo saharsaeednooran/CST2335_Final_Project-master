@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/textFragLayout"
+    >
+
+    <LinearLayout
+        android:id="@+id/edit_food_name"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        >
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/food_edit_name_label"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/edit_food_name_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_food_cals"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_food_name"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/food_edit_cals_label"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/edit_food_cals_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:inputType="number"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_food_fat"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_food_cals"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/food_edit_fat_label"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/edit_food_fat_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/gram_unit_full"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_food_carb"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_food_fat"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/food_edit_carbs_label"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/edit_food_carb_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/gram_unit_full"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_food_date"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_food_carb"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/food_edit_date_label"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/edit_food_date_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/food_edit_cancel"
+        android:id="@+id/edit_food_cancel"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/edit_food_date"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/food_edit_save"
+        android:id="@+id/edit_food_save"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/edit_food_date"
+        />
+
+
+
+</RelativeLayout>
+
+
+
