@@ -224,8 +224,7 @@ public class ActivityAddActivity extends AppCompatActivity {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(ActivityAddActivity.this, ActivityTrackerActivity.class);
-                    startActivity(intent);
+                finish();
 
             }
         });
