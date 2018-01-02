@@ -24,6 +24,8 @@
         <activity android:name=".ActivityViewHistory" />
         <activity android:name=".ActivityDetails" />
         <activity android:name=".ActivityStats" />
+        <activity android:name=".AutomobileActivity" />
+
 
     </application>
 

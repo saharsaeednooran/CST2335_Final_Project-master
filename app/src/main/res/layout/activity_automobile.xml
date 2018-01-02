@@ -1,82 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rwmol.cst2335_final_project.AutomobileActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.rwmol.cst2335_final_project.NutritionTrackerActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        android:layout_marginTop="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/litresLabel"
-            android:layout_width="match_parent"
+            android:id="@+id/averageGasPriceLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:editable="false"
-            android:text="Number of Litres:" />
+            android:layout_gravity="center_horizontal"
+            android:text="@string/averagePrice" />
 
-        <EditText
-            android:id="@+id/litres"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/averageGasPrice"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:editable="true"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:numeric="decimal" />
+            android:layout_gravity="center_horizontal"
+            android:ems="10" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
         <TextView
-            android:id="@+id/priceLabel"
-            android:layout_width="match_parent"
+            android:id="@+id/totalLitresLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price of Gas" />
-
-        <EditText
-            android:id="@+id/price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:numeric="decimal" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_gravity="center_horizontal"
+            android:text="@string/totalLitres" />
 
         <TextView
-            android:id="@+id/kilometreLabel"
-            android:layout_width="match_parent"
+            android:id="@+id/totalLitres"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Number of Kilometres" />
-
-        <EditText
-            android:id="@+id/kilometres"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:numeric="decimal" />
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:layout_gravity="center_horizontal"
+            android:ems="10" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
-        <ListView
+        <FrameLayout
+            android:id="@+id/auto_fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content" />
 
-        </ListView>
+        <LinearLayout
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addPurchaseButton"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/addPurchase"/>
+
+            <Button
+                android:id="@+id/monthlyGasButton"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/monthlyButton"/>
+
+            <Button
+                android:id="@+id/purchaseHistoryButton"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/purchaseHistory"/>
+        </LinearLayout>
+
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

@@ -96,4 +96,47 @@ Activity tracker is designed to track exercises. The user can add a new activity
 \n\n- Selecting one of these food items expands the item to also show its fat and carbohydrate content as well as two buttons that allow the user to either edit or completely delete the food item.
 \n\n- When the user selects the Summary List button, the Summary List is displayed that shows the total calories, fat, and carbohydrates consumed by the user each day.</string>
 
+
+    <string name="dateLabel">Date</string>
+    <string name="purchaseDate">Purchase Date</string>
+    <string name="litresLabel">Litres</string>
+    <string name="purchaseLitres">Purchase Litres</string>
+    <string name="costLabel">Cost</string>
+    <string name="purchaseCost">Purchase Cost</string>
+    <string name="kilometersLabel">Date</string>
+    <string name="purchaseKilometers">Purchase Kilometers</string>
+    <string name="autoEditButton">Edit</string>
+    <string name="autoDeleteButton">Delete</string>
+    <string name="autoCancelButton">Cancel</string>
+    <string name="autoSaveButton">Save</string>
+
+    <string name="automobile_edit_dialog_title">Edit Purchase</string>
+    <string name="automobile_delete_dialog_title">Delete Purchase</string>
+    <string name="automobile_add_dialog_title">Delete Purchase</string>
+
+    <string name="deleteQuestion">Are you sure you want to delete this purchase?</string>
+
+    <string name="averagePrice">Average Price of Gas over 30 Days</string>
+    <string name="totalLitres">Total Litres of Gas over 30 Days</string>
+    <string name="monthlyLabel">Number of Litres of Gas by Month</string>
+
+    <string name="jan">  Jan</string>
+    <string name="feb">  Feb</string>
+    <string name="mar">  Mar</string>
+    <string name="apr">  Apr</string>
+    <string name="may">  May</string>
+    <string name="jun">  Jun</string>
+    <string name="jul">  Jul</string>
+    <string name="aug">  Aug</string>
+    <string name="sep">  Sep</string>
+    <string name="nov">  Nov</string>
+    <string name="oct">  Oct</string>
+    <string name="dec">  Dec</string>
+    <string name="unk">  NA</string>
+
+    <string name="autoClearData">Clear Data</string>
+    <string name="addPurchase">Add Purchase</string>
+    <string name="purchaseHistory">Purchase History</string>
+    <string name="monthlyButton">Monthly Gas Summary</string>
+
 </resources>
