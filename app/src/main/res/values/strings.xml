@@ -35,6 +35,9 @@
     <string name="resetButton">Reset</string>
     <string name="backButton">Back to Home</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="help_tracker">"Version 1.0, by Sahar Saeednooran\n\n
+Activity tracker is designed to track exercises. The user can add a new activity or view their previous activity history.
+        "</string>
 
     <string name="food_add_name_hint">Name of food</string>
     <string name="food_add_cals_hint">Total Calories</string>
@@ -84,5 +87,13 @@
     <string name="nutriton_of_string">of</string>
     <string name="toolbar_about">About</string>
     <string name="nutrition_none_added">No Data Present</string>
+    <string name="nutrition_help">Version 1.0, by Corey MacLeod\n\n
+        An Activity designed to keep track of a user\'s food intake by allowing them to add every food item they eat during the day.
+\n\n- The user can add the name, calorie count, fat/carbohydrate content and the item will be stored in a database linked to the app. If no values are entered when adding a food item, the value defaults to 0.
+\n\n- The app will then calculate the user\'s average daily calorie intake and inform them of the total calories they consumed the last day they added food.
+\n\n- A progress bar shows how much of their daily calorie goal they have consumed the last day they entered a food item.
+\n\n- The App starts by displaying the Full Food List.
+\n\n- Selecting one of these food items expands the item to also show its fat and carbohydrate content as well as two buttons that allow the user to either edit or completely delete the food item.
+\n\n- When the user selects the Summary List button, the Summary List is displayed that shows the total calories, fat, and carbohydrates consumed by the user each day.</string>
 
 </resources>

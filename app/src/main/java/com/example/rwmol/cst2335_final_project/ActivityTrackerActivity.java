@@ -83,7 +83,7 @@ public class ActivityTrackerActivity extends AppCompatActivity {
             case R.id.about:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Activity Tracker");
-                builder.setMessage("Version 1.0, by Sahar Saeednooran\n");
+                builder.setMessage(R.string.help_tracker);
                 // Add the buttons
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

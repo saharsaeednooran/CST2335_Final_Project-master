@@ -1,8 +1,10 @@
 package com.example.rwmol.cst2335_final_project;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -315,6 +317,20 @@ public class NutritionTrackerActivity extends AppCompatActivity {
             case R.id.nutrition_tracker_activity:
                // setResult(MainActivity.SWITCH_TO_NUTRITION);
                // finish();
+                break;
+
+            case R.id.about:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Nutrition Tracker");
+                builder.setMessage(R.string.nutrition_help);
+                // Add the buttons
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
                 break;
         }
         return true;
