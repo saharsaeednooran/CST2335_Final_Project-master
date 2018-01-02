@@ -90,6 +90,8 @@ public class NutritionTrackerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nutrition_tracker);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.nutritionTrackerTitle);
+
         lastDayAddedCalorieTotal = findViewById(R.id.nutrition_last_day_added_calories_value);
         averageCalorieTotal = findViewById(R.id.average_daily_calories_value);
         addFood = findViewById(R.id.add_food_button);

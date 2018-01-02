@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">finalProject</string>
+    <string name="app_name">Smart Tracker</string>
+    <string name="activtyTrackerTitle">Activity Tracker</string>
     <string name="activityTrackerButtonText">Activity Tracking</string>
     <string name="nutritionTrackerButtonText">Food Nutrition information tracker</string>
     <string name="houseThermostatButtonText">House Thermostat</string>
@@ -39,6 +40,7 @@
 Activity tracker is designed to track exercises. The user can add a new activity or view their previous activity history.
         "</string>
 
+    <string name="nutritionTrackerTitle">Nutrition Tracker</string>
     <string name="food_add_name_hint">Name of food</string>
     <string name="food_add_cals_hint">Total Calories</string>
     <string name="food_add_fat_hint">Total Fats in grams</string>
@@ -138,5 +140,6 @@ Activity tracker is designed to track exercises. The user can add a new activity
     <string name="addPurchase">Add Purchase</string>
     <string name="purchaseHistory">Purchase History</string>
     <string name="monthlyButton">Monthly Gas Summary</string>
+    <string name="automobileTitle">Fuel Tracker</string>
 
 </resources>

@@ -42,21 +42,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        Button houseThermostatButton = (Button) findViewById(R.id.houseThermostatButton);
-//        houseThermostatButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, HouseThermostatActivity.class);
-//                startActivityForResult(intent, START_ACTIVITY);
-//            }
-//        });
-
         Button automobileButton = (Button) findViewById(R.id.automobileButton);
         automobileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this, AutomobileActivity.class);
-                //startActivityForResult(intent, START_ACTIVITY);
+                Intent intent = new Intent(MainActivity.this, AutomobileActivity.class);
+                startActivityForResult(intent, START_ACTIVITY);
             }
         });
     }
@@ -73,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(activityIntent, START_ACTIVITY);
                 break;
             case R.id.automobile_activity:
-                //Intent automobileIntent = new Intent(MainActivity.this, AutomobileActivity.class);
-                //startActivityForResult(automobileIntent, START_ACTIVITY);
+                Intent automobileIntent = new Intent(MainActivity.this, AutomobileActivity.class);
+                startActivityForResult(automobileIntent, START_ACTIVITY);
                 break;
             case R.id.nutrition_tracker_activity:
                 Intent nutritionIntent = new Intent(MainActivity.this, NutritionTrackerActivity.class);
@@ -94,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case SWITCH_TO_AUTOMOBILE:
-                   // Intent automobileIntent = new Intent(MainActivity.this, AutomobileActivity.class);
-                    //startActivityForResult(automobileIntent, START_ACTIVITY);
+                   Intent automobileIntent = new Intent(MainActivity.this, AutomobileActivity.class);
+                    startActivityForResult(automobileIntent, START_ACTIVITY);
                     break;
 
                 case SWITCH_TO_NUTRITION:

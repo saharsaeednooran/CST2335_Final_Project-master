@@ -35,6 +35,8 @@ public class ActivityTrackerActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.activtyTrackerTitle);
+
 
         addActivityBtn = (Button) findViewById(R.id.addNewActivityButton);
         addActivityBtn.setOnClickListener(new View.OnClickListener() {

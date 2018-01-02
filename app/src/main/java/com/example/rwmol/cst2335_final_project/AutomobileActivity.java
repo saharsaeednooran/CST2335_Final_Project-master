@@ -45,6 +45,7 @@ public class AutomobileActivity extends AppCompatActivity{
         setContentView(R.layout.activity_automobile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(R.string.automobileTitle);
 
         addPurchase = findViewById(R.id.addPurchaseButton);
         purchaseHistory = findViewById(R.id.purchaseHistoryButton);
