@@ -132,7 +132,6 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
                             Toast toast = Toast.makeText(ctx, "Purchase was deleted", Toast.LENGTH_LONG);
                             toast.show();
                             ctx.deletePurchase(getItemId(position), position);
-                            Log.i(ACTIVITY_NAME, "ctx.deletePurchase called");
                             dialog.dismiss();
                             selectedPostion = -1;
                             notifyDataSetChanged();
