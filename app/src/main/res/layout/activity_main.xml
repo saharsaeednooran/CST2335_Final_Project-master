@@ -45,6 +45,7 @@
 
         <Space
             android:layout_width="match_parent"
+            android:layout_below="@+id/activityTrackerButton"
             android:layout_height="24dp" />
 
         <ImageView
@@ -65,16 +66,16 @@
             android:layout_alignParentEnd="true"
             android:text="@string/nutritionTrackerButtonText" />
 
-
         <Space
             android:layout_width="match_parent"
+            android:layout_below="@+id/nutritionTrackerButton"
             android:layout_height="24dp" />
 
         <ImageView
             android:id="@+id/AutomobileImageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="165dp"
             android:layout_alignParentStart="true"
             app:srcCompat="@drawable/car" />
 
@@ -83,10 +84,16 @@
             android:id="@+id/automobileButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="165dp"
             android:layout_toEndOf="@id/ActvityImageView"
             android:layout_alignParentEnd="true"
             android:text="@string/automobileButtonText" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ActvityImageView"
+            android:layout_centerHorizontal="true" />
 
 
     </RelativeLayout>

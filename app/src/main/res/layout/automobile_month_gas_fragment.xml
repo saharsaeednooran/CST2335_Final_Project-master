@@ -6,7 +6,9 @@
 
     <TextView
         android:id="@+id/monthlyAverageLabel"
-        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/monthlyLabel" />
@@ -22,13 +24,17 @@
 
         <TextView
             android:id="@+id/jan"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/jan" />
 
         <TextView
             android:id="@+id/janAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -36,13 +42,17 @@
 
         <TextView
             android:id="@+id/feb"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/feb" />
 
         <TextView
             android:id="@+id/febAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -61,13 +71,17 @@
 
         <TextView
             android:id="@+id/mar"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/mar" />
 
         <TextView
             android:id="@+id/marAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -75,13 +89,17 @@
 
         <TextView
             android:id="@+id/apr"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/apr" />
 
         <TextView
             android:id="@+id/aprAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -100,13 +118,17 @@
 
         <TextView
             android:id="@+id/may"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/may" />
 
         <TextView
             android:id="@+id/mayAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -114,13 +136,17 @@
 
         <TextView
             android:id="@+id/jun"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/jun" />
 
         <TextView
             android:id="@+id/junAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -139,13 +165,17 @@
 
         <TextView
             android:id="@+id/jul"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/jul" />
 
         <TextView
             android:id="@+id/julAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -153,13 +183,17 @@
 
         <TextView
             android:id="@+id/aug"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/aug" />
 
         <TextView
             android:id="@+id/augAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -178,13 +212,17 @@
 
         <TextView
             android:id="@+id/sep"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/sep" />
 
         <TextView
             android:id="@+id/sepAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -192,13 +230,17 @@
 
         <TextView
             android:id="@+id/oct"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/oct" />
 
         <TextView
             android:id="@+id/octAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -217,13 +259,17 @@
 
         <TextView
             android:id="@+id/nov"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/nov" />
 
         <TextView
             android:id="@+id/novAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -231,13 +277,17 @@
 
         <TextView
             android:id="@+id/dec"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/dec" />
 
         <TextView
             android:id="@+id/decAvg"
+            android:textSize="20dp"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

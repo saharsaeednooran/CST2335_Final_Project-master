@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white"> #FFF</color>
     <color name="nutritionSelectBackground">#C0D6E4</color>
+    <color name="red">#f00d3b</color>
+    <color name="auto_info_background">#0DF08F</color>
 </resources>

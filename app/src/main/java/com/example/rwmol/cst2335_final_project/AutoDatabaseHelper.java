@@ -10,14 +10,14 @@ public class AutoDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "AutoPurchase.db";
     private static final int VERSION_NUM = 5;
 
-    public static final String TABLE_NAME = "AUTO_PURCHASE_LOG";
-    public static final String KEY_ID = "_ID";
-    public static final String DATE = "Date";
-    public static final String LITRES = "Litres";
-    public static final String COST = "Cost";
-    public static final String KILOMETERS = "Kilometers";
+    static final String TABLE_NAME = "AUTO_PURCHASE_LOG";
+    static final String KEY_ID = "_ID";
+    static final String DATE = "Date";
+    static final String LITRES = "Litres";
+    static final String COST = "Cost";
+    static final String KILOMETERS = "Kilometers";
 
-    public AutoDatabaseHelper(Context context){
+    AutoDatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, VERSION_NUM);
     }
 

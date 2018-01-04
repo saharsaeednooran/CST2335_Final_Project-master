@@ -3,6 +3,7 @@ package com.example.rwmol.cst2335_final_project;
 import android.app.Dialog;
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
 
     private int selectedPostion = -1;
+    private static final String ACTIVITY_NAME = "AutoPurchaseListAdapter";
 
     private EditText purchaseDate;
     private EditText purchaseCost;
@@ -28,7 +30,7 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
     private ArrayList<PurchaseInfo> list;
     private Dialog dialog;
 
-    public AllAutoPurchaseListAdapter(Context ctx, ArrayList<PurchaseInfo> list){
+    AllAutoPurchaseListAdapter(Context ctx, ArrayList<PurchaseInfo> list){
         super(ctx, 0);
         inflater = LayoutInflater.from(ctx);
         this.list = list;
@@ -50,19 +52,13 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
         if(convertView==null || convertView.getTag() == null){
             convertView = inflater.inflate(R.layout.automobile_info_view_layout, parent, false);
             holder = new PurchaseListHolder();
-            holder.cost = convertView.findViewById(R.id.costInfo);
             holder.date = convertView.findViewById(R.id.dateInfo);
-            holder.kilo = convertView.findViewById(R.id.kiloInfo);
-            holder.litre = convertView.findViewById(R.id.litreInfo);
             convertView.setTag(holder);
         }else{
             holder = (PurchaseListHolder) convertView.getTag();
         }
 
-        holder.cost.setText(list.get(position).getCost());
         holder.date.setText(list.get(position).getDate());
-        holder.kilo.setText(list.get(position).getKilo());
-        holder.litre.setText(list.get(position).getLitre());
 
         if(this.selectedPostion==position){
             View selectedView = inflater.inflate(R.layout.automobile_info_view_selected_layout, parent, false);
@@ -73,11 +69,15 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
             TextView litre = selectedView.findViewById(R.id.purchaseLitres);
             Button edit = selectedView.findViewById(R.id.edit_purchase);
             Button delete = selectedView.findViewById(R.id.delete_purchase);
+            Button cancel = selectedView.findViewById(R.id.cancel_view);
 
-            cost.setText("$" + list.get(position).getCost());
+            String autoCost = getContext().getResources().getString(R.string.automobileCost, list.get(position).getCost());
+            cost.setText(autoCost);
             date.setText(list.get(position).getDate());
-            kilo.setText(list.get(position).getKilo() + "kg");
-            litre.setText(list.get(position).getLitre() + "L");
+            String autoKilo = getContext().getResources().getString(R.string.automobileKilo, list.get(position).getKilo());
+            kilo.setText(autoKilo);
+            String autoLitre = getContext().getResources().getString(R.string.automobileLitre, list.get(position).getLitre());
+            litre.setText(autoLitre);
 
             edit.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
@@ -116,6 +116,7 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
                             notifyDataSetChanged();
                         }
                     });
+                    dialog.show();
                 }
             });
 
@@ -123,17 +124,7 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
                 public void onClick(View view){
 
                     dialog = new Dialog(ctx);
-                    dialog.setContentView(R.layout.automobile_delete_dialog_layout);
-                    dialog.setTitle(getContext().getResources().getString(R.string.automobile_delete_dialog_title));
-                    purchaseCost = dialog.findViewById(R.id.deletePurchaseCost);
-                    purchaseDate = dialog.findViewById(R.id.deletePurchaseDate);
-                    purchaseKilometers = dialog.findViewById(R.id.deletePurchaseKilometers);
-                    purchaseLitres = dialog.findViewById(R.id.deletePurchaseLitres);
-
-                    purchaseCost.setText(getItem(position).getCost());
-                    purchaseDate.setText(getItem(position).getDate());
-                    purchaseKilometers.setText(getItem(position).getKilo());
-                    purchaseLitres.setText(getItem(position).getLitre());
+                    dialog.setContentView(R.layout.automobile_delete_confirmation);
 
                     Button deletePurchase = dialog.findViewById(R.id.delete_purchase);
                     deletePurchase.setOnClickListener(new View.OnClickListener(){
@@ -141,6 +132,7 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
                             Toast toast = Toast.makeText(ctx, "Purchase was deleted", Toast.LENGTH_LONG);
                             toast.show();
                             ctx.deletePurchase(getItemId(position), position);
+                            Log.i(ACTIVITY_NAME, "ctx.deletePurchase called");
                             dialog.dismiss();
                             selectedPostion = -1;
                             notifyDataSetChanged();
@@ -156,6 +148,13 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
                         }
                     });
                     dialog.show();
+                }
+            });
+
+            cancel.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    selectedPostion = -1;
+                    notifyDataSetChanged();
                 }
             });
             return selectedView;
@@ -181,7 +180,6 @@ public class AllAutoPurchaseListAdapter extends ArrayAdapter<PurchaseInfo> {
     }
 
     static class PurchaseListHolder{
-        TextView date, cost, kilo, litre;
+        TextView date;
     }
-
 }

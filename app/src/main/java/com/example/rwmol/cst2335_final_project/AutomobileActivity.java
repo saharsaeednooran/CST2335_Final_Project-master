@@ -1,7 +1,9 @@
 package com.example.rwmol.cst2335_final_project;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -9,13 +11,15 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,6 +42,8 @@ public class AutomobileActivity extends AppCompatActivity{
     AutomobileMonthlyGasFragment monthFragment;
     TextView avgPrice;
     TextView sumPrice;
+    private ProgressBar calcAverage;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,10 @@ public class AutomobileActivity extends AppCompatActivity{
         addPurchase = findViewById(R.id.addPurchaseButton);
         purchaseHistory = findViewById(R.id.purchaseHistoryButton);
         monthlySummary = findViewById(R.id.monthlyGasButton);
+
+        calcAverage = findViewById(R.id.calculateAverageProgress);
+        calcAverage.setVisibility(View.VISIBLE);
+        calcAverage.setMax(100);
 
         autoDBHelper = new AutoDatabaseHelper(this);
         db = autoDBHelper.getWritableDatabase();
@@ -69,7 +79,7 @@ public class AutomobileActivity extends AppCompatActivity{
             cursor.moveToNext();
         }
 
-        new AverageCalculations().execute();;
+        new AverageCalculations().execute();
 
         purchaseFragment = new AllAutoPurchaseFragment().newInstance(purchaseListAdapter);
         monthFragment = new AutomobileMonthlyGasFragment().newInstance(AutomobileActivity.this);
@@ -77,13 +87,10 @@ public class AutomobileActivity extends AppCompatActivity{
         purchaseHistory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Log.i(ACTIVITY_NAME, "Start of purchaseHistory.setOnClickListener");
                 AllAutoPurchaseFragment allAutoPurchaseFragment = (AllAutoPurchaseFragment)getSupportFragmentManager().findFragmentByTag(AUTO_PURCHASE_LIST);
                 if(allAutoPurchaseFragment == null){
-                    Log.i(ACTIVITY_NAME, "Start of purchaseHistory.setOnClickListener - if statement start");
                     getSupportFragmentManager().beginTransaction().replace(R.id.auto_fragment_container, purchaseFragment, AUTO_PURCHASE_LIST).commit();
                 }
-                Log.i(ACTIVITY_NAME, "Start of purchaseHistory.setOnClickListener - if statement exit");
             }
         });
 
@@ -101,7 +108,6 @@ public class AutomobileActivity extends AppCompatActivity{
             Dialog dialog;
             TextView addCost, addKilo, addLitre, addDate;
             public void onClick(View view){
-                Log.i(ACTIVITY_NAME, "addPurchase, onClick");
                 dialog = new Dialog(AutomobileActivity.this);
                 dialog.setContentView(R.layout.automobile_add_dialog_layout);
                 dialog.setTitle("Add Purchase");
@@ -109,7 +115,6 @@ public class AutomobileActivity extends AppCompatActivity{
                 addKilo = dialog.findViewById(R.id.addPurchaseKilometers);
                 addLitre = dialog.findViewById(R.id.addPurchaseLitres);
                 addDate = dialog.findViewById(R.id.addPurchaseDate);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(new Date());
                 addDate.setText(date);
 
@@ -132,10 +137,10 @@ public class AutomobileActivity extends AppCompatActivity{
                         cValues.put(AutoDatabaseHelper.DATE, newDate);
                         cValues.put(AutoDatabaseHelper.KILOMETERS, addKilo.getText().toString());
                         db.insert(AutoDatabaseHelper.TABLE_NAME, null, cValues);
-                        Snackbar.make(view, "You have Added the Purchase", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();
+
                         dialog.dismiss();
                         updateAutomotiveActivity();
+
                     }
                 });
 
@@ -159,7 +164,7 @@ public class AutomobileActivity extends AppCompatActivity{
 
     public void deletePurchase(long id, int pos){
         db.execSQL("DELETE FROM " + AutoDatabaseHelper.TABLE_NAME + " where " + AutoDatabaseHelper.KEY_ID + "='" + id + "'");
-        purchaseStorage.get(pos).getDate();
+        //purchaseStorage.get(pos).getDate();
         purchaseStorage.remove(pos);
         updateAutomotiveActivity();
     }
@@ -210,12 +215,11 @@ public class AutomobileActivity extends AppCompatActivity{
 
     public String calculateThirtyDaySum(){
         Date today = new Date();
-        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-        String stringToday = formatDate.format(today);
+        String stringToday = sdf.format(today);
         Calendar cal = new GregorianCalendar();
         cal.setTime(today);
         cal.add(Calendar.DAY_OF_MONTH, -30);
-        String stringPast = formatDate.format(cal.getTime());
+        String stringPast = sdf.format(cal.getTime());
         String query = "SELECT SUM(LITRES) FROM " + AutoDatabaseHelper.TABLE_NAME + " WHERE DATE >= ? and DATE  <= ?";
         Cursor cursor = db.rawQuery(query, new String[]{stringPast, stringToday});
         cursor.moveToPosition(0);
@@ -224,18 +228,16 @@ public class AutomobileActivity extends AppCompatActivity{
 
     public String calculateThirtyDayAvg(){
         Date today = new Date();
-        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-        String stringToday = formatDate.format(today);
-        Log.i(ACTIVITY_NAME, stringToday);
+        String stringToday = sdf.format(today);
         Calendar cal = new GregorianCalendar();
         cal.setTime(today);
         cal.add(Calendar.DAY_OF_MONTH, -30);
-        String stringPast = formatDate.format(cal.getTime());
-        Log.i(ACTIVITY_NAME, stringPast);
-        String query = "SELECT AVG(LITRES) FROM " + AutoDatabaseHelper.TABLE_NAME + " WHERE DATE >= ? and DATE  <= ?";
-        Cursor cursor = db.rawQuery(query, new String[]{stringPast, today.toString()});
+        String stringPast = sdf.format(cal.getTime());
+        String query = "SELECT AVG(COST) FROM " + AutoDatabaseHelper.TABLE_NAME + " WHERE DATE >= ? and DATE  <= ?";
+        Cursor cursor = db.rawQuery(query, new String[]{stringPast, stringToday});
+        //Cursor cursor = db.rawQuery(query, new String[]{stringPast, today.toString()}); if break, use above
         cursor.moveToPosition(0);
-        return cursor.getString(cursor.getColumnIndex("AVG(LITRES)"));
+        return cursor.getString(cursor.getColumnIndex("AVG(COST)"));
     }
 
     public String calculateMonthlySum(int month){
@@ -266,34 +268,69 @@ public class AutomobileActivity extends AppCompatActivity{
                 setResult(MainActivity.SWITCH_TO_NUTRITION);
                 finish();
                 break;
+            case R.id.about:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Fuel Tracker");
+                builder.setMessage(R.string.automobile_help);
+                // Add the buttons
+                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                break;
         }
         return true;
     }
 
-    private class AverageCalculations extends AsyncTask<Void, Void, String>{
-
-        String avgPriveValue = "";
-        String sumPriceValue = "";
-
+    private class AverageCalculations extends AsyncTask<Void, Integer, String>{
 
         @Override
         protected String doInBackground(Void... args){
-            avgPriveValue = calculateThirtyDayAvg();
-            sumPriceValue = calculateThirtyDaySum();
 
-
+           int counter;
+            for (counter=1; counter < 10; counter++ ) {
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                publishProgress(counter);
+            }
             return "done";
         }
 
         @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            calcAverage.setProgress(values[0]);
+            calcAverage.setVisibility(View.VISIBLE);
+        }
+
+        @Override
         protected void onPostExecute(String result) {
+            String s;
+            NumberFormat formatter = new DecimalFormat("#.##");
             avgPrice = findViewById(R.id.averageGasPrice);
-            avgPrice.setText(calculateThirtyDayAvg());
+            if(calculateThirtyDayAvg() != null){
+                s = formatter.format(Double.valueOf(calculateThirtyDayAvg()));
+                avgPrice.setText(getString(R.string.automobileAvgPrice, s));
+            }else{
+                avgPrice.setText(getString(R.string.automobileZeroPrice));
+            }
 
             sumPrice = findViewById(R.id.totalLitres);
-            sumPrice.setText(calculateThirtyDaySum());
+            if(calculateThirtyDaySum() != null){
+                s = formatter.format(Double.valueOf(calculateThirtyDaySum()));
+            }else{
+                s = getString(R.string.automobileZeroPrice);
+            }
 
-
+            sumPrice.setText(getString(R.string.automobileSumPrice, s));
+            calcAverage.setVisibility(View.INVISIBLE);
+            Snackbar.make(findViewById(R.id.autoActivityLayout), "Averages have been updated!", Snackbar.LENGTH_LONG).show();
         }
     }
 }

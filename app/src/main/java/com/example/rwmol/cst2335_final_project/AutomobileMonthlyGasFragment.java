@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class AutomobileMonthlyGasFragment extends Fragment {
 
     ListView view;
-    private TextView janView, febView, marView, aprView, mayView, junView, julView, augView, sepView, octView, novView, decView;
     AutomobileActivity activity;
 
     public static AutomobileMonthlyGasFragment newInstance(AutomobileActivity activity) {
@@ -32,7 +31,9 @@ public class AutomobileMonthlyGasFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        //view = view.findViewById(R.id.daily_summary_list);
+
+        TextView janView, febView, marView, aprView, mayView, junView, julView, augView, sepView, octView, novView, decView;
+
         janView = view.findViewById(R.id.janAvg);
         febView = view.findViewById(R.id.febAvg);
         marView = view.findViewById(R.id.marAvg);
@@ -48,31 +49,56 @@ public class AutomobileMonthlyGasFragment extends Fragment {
 
         for (int i = 1; i <= 12; i++) {
             if (i == 1) {
-                janView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    janView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 2) {
-                febView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    febView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 3) {
-                marView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    marView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 4) {
-                aprView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    aprView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 5) {
-                mayView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    mayView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 6) {
-                junView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    junView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 7) {
-                julView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    julView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 8) {
-                augView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    augView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 9) {
-                sepView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    sepView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 10) {
-                octView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    octView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 11) {
-                novView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    novView.setText(activity.calculateMonthlySum(i));
+                }
             } else if (i == 12) {
-                decView.setText(activity.calculateMonthlySum(i));
+                if(activity.calculateMonthlySum(i) != null){
+                    decView.setText(activity.calculateMonthlySum(i));
+                }
             } else {
                 break;
             }
         }
-    }}
+    }
+}

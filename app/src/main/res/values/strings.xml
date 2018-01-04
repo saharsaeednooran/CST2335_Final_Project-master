@@ -98,7 +98,6 @@ Activity tracker is designed to track exercises. The user can add a new activity
 \n\n- Selecting one of these food items expands the item to also show its fat and carbohydrate content as well as two buttons that allow the user to either edit or completely delete the food item.
 \n\n- When the user selects the Summary List button, the Summary List is displayed that shows the total calories, fat, and carbohydrates consumed by the user each day.</string>
 
-
     <string name="dateLabel">Date</string>
     <string name="purchaseDate">Purchase Date</string>
     <string name="litresLabel">Litres</string>
@@ -122,24 +121,42 @@ Activity tracker is designed to track exercises. The user can add a new activity
     <string name="totalLitres">Total Litres of Gas over 30 Days</string>
     <string name="monthlyLabel">Number of Litres of Gas by Month</string>
 
-    <string name="jan">  Jan</string>
-    <string name="feb">  Feb</string>
-    <string name="mar">  Mar</string>
-    <string name="apr">  Apr</string>
-    <string name="may">  May</string>
-    <string name="jun">  Jun</string>
-    <string name="jul">  Jul</string>
-    <string name="aug">  Aug</string>
-    <string name="sep">  Sep</string>
-    <string name="nov">  Nov</string>
-    <string name="oct">  Oct</string>
-    <string name="dec">  Dec</string>
-    <string name="unk">  NA</string>
+    <string name="jan">January</string>
+    <string name="feb">February</string>
+    <string name="mar">March</string>
+    <string name="apr">April</string>
+    <string name="may">May</string>
+    <string name="jun">June</string>
+    <string name="jul">July</string>
+    <string name="aug">August</string>
+    <string name="sep">September</string>
+    <string name="nov">November</string>
+    <string name="oct">October</string>
+    <string name="dec">December</string>
+    <string name="unk">NA</string>
 
     <string name="autoClearData">Clear Data</string>
     <string name="addPurchase">Add Purchase</string>
     <string name="purchaseHistory">Purchase History</string>
     <string name="monthlyButton">Monthly Gas Summary</string>
     <string name="automobileTitle">Fuel Tracker</string>
+    <string name="automobileFragmentLabel">Purchase Date:</string>
+
+    <string name="automobile_help">Version 1.0, by Ryan Molitor\n\n
+        An Activity designed to keep track of a user\'s fuel purchases.
+\n\n- The main screen shows the calculated amounts for average price and fuel in last 30 days.
+\n\n- The user has the option of adding a purchase, viewing a monthly summary of fuel purchase, or seeing a list of purchases.
+\n\n- When adding a purchase, the program automatically sets the date to today, though this can be overriden by the user.  This is done to give the user an example of date formatt.  The user inputs the price they paid, the amount of litres purchased and the number of kilometers.  Hitting save adds the purchase to the database and cancel removes the dialoge box.
+\n\n- Monthly gas summary tallies the amount of gas purchased by the user each month.  If there are no purchases, the system displays NA
+\n\n- Purchase history displays a listview of purchase dates.  When one is selected, detailed information is presented to the user.  The user has the option to edit, delete or cancel.
+\n\n- When ever the values in the database are changed, a new average is calculated.</string>
+
+    <string name="automobileSumPrice">%1$s Litres</string>
+    <string name="automobileAvgPrice">$%1$s</string>
+    <string name="automobileZeroPrice">$0</string>
+    <string name="automobileLitre">%1$sL</string>
+    <string name="automobileKilo">%1$sKm</string>
+    <string name="automobileCost">$%1$s</string>
+
 
 </resources>
