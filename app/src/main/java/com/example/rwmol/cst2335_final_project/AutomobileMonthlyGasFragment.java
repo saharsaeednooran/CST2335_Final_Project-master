@@ -8,27 +8,61 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * A custom Fragment that holds and displays a monthly totals of fuel purchases.
+ *
+ * @author Ryan Molitor
+ * @version 1.2
+ */
 public class AutomobileMonthlyGasFragment extends Fragment {
 
     ListView view;
     AutomobileActivity activity;
 
+    /**
+     * Creates a new Instance of AutomobileMonthlyGasFragment that accepts a AutomobileActivity reference as arguments.
+     *
+     * @param activity links to the automobileActivity.
+     * @return a new fragment.
+     */
     public static AutomobileMonthlyGasFragment newInstance(AutomobileActivity activity) {
         AutomobileMonthlyGasFragment fragment = new AutomobileMonthlyGasFragment();
         fragment.activity = activity;
         return fragment;
     }
 
+    /**
+     * Overriden version of Fragment's onCreate method that also retains the instance of the AutomobileMonthlyGasFragment,
+     * allowing it to persist after an Orientation change.
+     * {@inheritDoc}
+     * @param bundle
+     */
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
         setRetainInstance(true);
     }
 
+    /**
+     * Inflates the "automobile_month_gas_fragment" layout for AutomobileMonthlyGasFragment's View. Layout consists of a single ListView
+     *
+     * {@inheritDoc}
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return an inflated View using the "nutrition_daily_summary_list_fragment" layout.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.automobile_month_gas_fragment, container, false);
     }
 
+    /**
+     * Links the local ListView reference to the one inflated by onCreateView , sets it's Adapter to the local Activity, and adds an onItemClickListener.
+     * The onItemClickListener notifies the Activity of the View selected as well as a data change.
+     * {@inheritDoc}
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 

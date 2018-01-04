@@ -38,7 +38,7 @@ public class ActivityTrackerActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(R.string.activtyTrackerTitle);
 
 
-        addActivityBtn = (Button) findViewById(R.id.addNewActivityButton);
+        addActivityBtn = findViewById(R.id.addNewActivityButton);
         addActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +47,7 @@ public class ActivityTrackerActivity extends AppCompatActivity {
             }
         });
 
-        viewHistoryBtn=(Button) findViewById(R.id.viewHistoryButton);
+        viewHistoryBtn= findViewById(R.id.viewHistoryButton);
         viewHistoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +89,7 @@ public class ActivityTrackerActivity extends AppCompatActivity {
                 // Add the buttons
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        finish();
+                        dialog.dismiss();
                     }
                 });
                 AlertDialog dialog = builder.create();

@@ -328,7 +328,7 @@ public class NutritionTrackerActivity extends AppCompatActivity {
                 // Add the buttons
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        finish();
+                        dialog.dismiss();
                     }
                 });
                 AlertDialog dialog = builder.create();

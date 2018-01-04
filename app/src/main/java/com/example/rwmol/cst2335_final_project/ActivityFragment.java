@@ -59,12 +59,12 @@ public class ActivityFragment extends Fragment {
 
         myView = inflater.inflate(R.layout.fragment_activity, container, false);
 
-        deleteBtn=(Button) myView.findViewById(R.id.deleteButton);
-        editBtn=(Button) myView.findViewById(R.id.editButton);
-        cancelBtn=(Button)myView.findViewById(R.id.cancelButton);
-        activityTextView=(TextView)myView.findViewById(R.id.activityTextView);
-        durationTextView=(TextView)myView.findViewById(R.id.durationTextView);
-        commentsTextView=(TextView)myView.findViewById(R.id.commentsTextView);
+        deleteBtn= myView.findViewById(R.id.deleteButton);
+        editBtn= myView.findViewById(R.id.editButton);
+        cancelBtn= myView.findViewById(R.id.cancelButton);
+        activityTextView= myView.findViewById(R.id.activityTextView);
+        durationTextView= myView.findViewById(R.id.durationTextView);
+        commentsTextView= myView.findViewById(R.id.commentsTextView);
 
         selectedActivity=this.getArguments().getStringArrayList("selectedActivity");
         activity = selectedActivity.get(3);

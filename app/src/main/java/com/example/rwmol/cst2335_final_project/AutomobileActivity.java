@@ -27,6 +27,18 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 
+/**
+ * An Activity designed to keep track of a user\'s fuel purchases.
+ * The main screen shows the calculated amounts for average price and fuel in last 30 days.
+ * The user has the option of adding a purchase, viewing a monthly summary of fuel purchase, or seeing a list of purchases.
+ * When adding a purchase, the program automatically sets the date to today, though this can be overriden by the user.  This is done to give the user an example of date formatt.  The user inputs the price they paid, the amount of litres purchased and the number of kilometers.  Hitting save adds the purchase to the database and cancel removes the dialoge box.
+ * Monthly gas summary tallies the amount of gas purchased by the user each month.  If there are no purchases, the system displays NA
+ * Purchase history displays a listview of purchase dates.  When one is selected, detailed information is presented to the user.  The user has the option to edit, delete or cancel.
+ * When ever the values in the database are changed, a new average is calculated.
+ *
+ * @author Ryan Molitor
+ * @version 1.2
+ */
 public class AutomobileActivity extends AppCompatActivity{
 
     protected static final String ACTIVITY_NAME = "AutomobileActivity";
@@ -44,7 +56,20 @@ public class AutomobileActivity extends AppCompatActivity{
     TextView sumPrice;
     private ProgressBar calcAverage;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    AutomobileMonthlyGasFragment automobileMonthlyGasFragment;
 
+
+    /**
+     * Inflates the layout for the Automobile and sets the the local View references to the ones in the Context View.
+     * Initializes a new AutomobileDatabaseHelper and requests an SQLiteDatabase reference.
+     * Initializes new ArrayLists purchaseStorage well as its respective ArrayListAdapters.
+     *
+     * Creates an onClickListener for the Buttons that initializes and displays a custom Dialog that allows the user
+     * to add , edit, or delete.
+     *
+     * {@inheritDoc}
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +122,8 @@ public class AutomobileActivity extends AppCompatActivity{
         monthlySummary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AutomobileMonthlyGasFragment automobileMonthlyGasFragment = (AutomobileMonthlyGasFragment)getSupportFragmentManager().findFragmentByTag(MONTHLY_GAS);
+                //AutomobileMonthlyGasFragment automobileMonthlyGasFragment = (AutomobileMonthlyGasFragment)getSupportFragmentManager().findFragmentByTag(MONTHLY_GAS);
+                automobileMonthlyGasFragment = (AutomobileMonthlyGasFragment)getSupportFragmentManager().findFragmentByTag(MONTHLY_GAS);
                 if(automobileMonthlyGasFragment == null){
                     getSupportFragmentManager().beginTransaction().replace(R.id.auto_fragment_container, monthFragment, MONTHLY_GAS).commit();
                 }
@@ -155,6 +181,13 @@ public class AutomobileActivity extends AppCompatActivity{
         });
     }
 
+    /**
+     * Returns a String with the value of "0" if the inputValue argument is an empty String.
+     * Otherwise it will return the original inputValue String unchanged.
+     *
+     * @param inputValue the String input by the user
+     * @return a String with the value of "0" if the inputValue argument is an empty String. Otherwise it returns the initial value of the inputValue argument.
+     */
     public String checkUserInput(String inputValue){
         if(Objects.equals(inputValue, "")){
             return String.valueOf(0);
@@ -162,6 +195,14 @@ public class AutomobileActivity extends AppCompatActivity{
         return inputValue;
     }
 
+    /**
+     * Deletes am item from the Database using the "_id" key provided as the id argument.
+     * Executes an AsyncTask to refresh the calculated daily averages values one the item has been removed.
+     * Notify the allFoodListAdapter that the data has been changed.
+     *
+     * @param id the KEY_ID for the selected item as stored in the Nutrition Database. Retrieved by AllFoodListAdapter's getItemID method.
+     * @param pos the index value of the NutritionInfo object that represents the food item deleted by the user.
+     */
     public void deletePurchase(long id, int pos){
         db.execSQL("DELETE FROM " + AutoDatabaseHelper.TABLE_NAME + " where " + AutoDatabaseHelper.KEY_ID + "='" + id + "'");
         //purchaseStorage.get(pos).getDate();
@@ -169,6 +210,16 @@ public class AutomobileActivity extends AppCompatActivity{
         updateAutomotiveActivity();
     }
 
+    /**
+     * Updates a purchase item from the Database using the "_id" key provided as the id argument.
+     *
+     * @param id the "_id" key for the corresponding row in the Nutrition Database.
+     * @param pos the position of the selected item
+     * @param date the new name date of the purchase
+     * @param cost the new cost of the purchase
+     * @param kilo the new number of kilometers of the purchase
+     * @param litre the new number of litres of the purchase
+     */
     public void updatePurchase(long id, int pos, String date, double cost, double kilo, double litre){
         db.execSQL("UPDATE " + AutoDatabaseHelper.TABLE_NAME
                 + " set " + AutoDatabaseHelper.DATE + " = \"" + date
@@ -185,18 +236,30 @@ public class AutomobileActivity extends AppCompatActivity{
         updateAutomotiveActivity();
     }
 
+    /**
+     * Updates the Cursor
+     * as well as run the AverageCalculations AsyncTask which calculates average values
+     */
     private void updateAutomotiveActivity(){
         cursor = getTotalCursor();
         new AverageCalculations().execute();
         purchaseListAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * Overriden method of FragmentActivity's onDestroy method that also closes the Cursor used by NutritionTrackerActivity's onCreate method.
+     * {@inheritDoc}
+     */
     @Override
     public void onDestroy(){
         cursor.close();
         super.onDestroy();
     }
 
+    /**
+     * Used by multiple methods that use all the data stored in the Database.
+     * @return a Cursor which captures every row in the Database.
+     */
     public Cursor getTotalCursor(){
         return db.query(false,
                 AutoDatabaseHelper.TABLE_NAME,
@@ -213,6 +276,10 @@ public class AutomobileActivity extends AppCompatActivity{
                 null);
     }
 
+    /**
+     * Calculates the sum of the litres of fuel purchases in the last 30 days
+     * @return a string that holds the value of the Database query.
+     */
     public String calculateThirtyDaySum(){
         Date today = new Date();
         String stringToday = sdf.format(today);
@@ -223,9 +290,15 @@ public class AutomobileActivity extends AppCompatActivity{
         String query = "SELECT SUM(LITRES) FROM " + AutoDatabaseHelper.TABLE_NAME + " WHERE DATE >= ? and DATE  <= ?";
         Cursor cursor = db.rawQuery(query, new String[]{stringPast, stringToday});
         cursor.moveToPosition(0);
-        return cursor.getString(cursor.getColumnIndex("SUM(LITRES)"));
+        String result = cursor.getString(cursor.getColumnIndex("SUM(LITRES)"));
+        cursor.close();
+        return result;
     }
 
+    /**
+     * Calculates the average cost for fuel over the last 30 days
+     * @return a string that holds the value of the Database query.
+     */
     public String calculateThirtyDayAvg(){
         Date today = new Date();
         String stringToday = sdf.format(today);
@@ -237,16 +310,25 @@ public class AutomobileActivity extends AppCompatActivity{
         Cursor cursor = db.rawQuery(query, new String[]{stringPast, stringToday});
         //Cursor cursor = db.rawQuery(query, new String[]{stringPast, today.toString()}); if break, use above
         cursor.moveToPosition(0);
-        return cursor.getString(cursor.getColumnIndex("AVG(COST)"));
+        String result = cursor.getString(cursor.getColumnIndex("AVG(COST)"));
+        cursor.close();
+        return result;
     }
 
+    /**
+     * Calculates the sum of the fuel in a indicated month
+     * @param month the int value for the month for the query. Eg, 1 would be january
+     * @return a string that holds the value of the Database query.
+     */
     public String calculateMonthlySum(int month){
         String testMonth = String.format("%02d", month);
         String query = "SELECT SUM(LITRES) FROM " + AutoDatabaseHelper.TABLE_NAME + " WHERE DATE LIKE ?";
         String monthCue = "%-" + testMonth + "-%";
         Cursor cursor = db.rawQuery(query, new String[]{monthCue});
         cursor.moveToPosition(0);
-        return cursor.getString(cursor.getColumnIndex("SUM(LITRES)"));
+        String result = cursor.getString(cursor.getColumnIndex("SUM(LITRES)"));
+        cursor.close();
+        return result;
     }
 
     public boolean onCreateOptionsMenu (Menu m){
@@ -270,12 +352,12 @@ public class AutomobileActivity extends AppCompatActivity{
                 break;
             case R.id.about:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Fuel Tracker");
+                builder.setTitle(getString(R.string.automobileTitle));
                 builder.setMessage(R.string.automobile_help);
                 // Add the buttons
                 builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        finish();
+                        dialog.dismiss();
                     }
                 });
                 AlertDialog dialog = builder.create();
@@ -285,8 +367,18 @@ public class AutomobileActivity extends AppCompatActivity{
         return true;
     }
 
+    /**
+     * A custom AsyncTask that runs statistical queries in the background.
+     */
     private class AverageCalculations extends AsyncTask<Void, Integer, String>{
 
+        /**
+         * Creates a progress bar to demonstrate progress in updating statistical values
+         *
+         * {@inheritDoc}
+         * @param args
+         * @return
+         */
         @Override
         protected String doInBackground(Void... args){
 
@@ -302,6 +394,12 @@ public class AutomobileActivity extends AppCompatActivity{
             return "done";
         }
 
+        /**
+         * Updates the progress bar
+         *
+         * {@inheritDoc}
+         * @param values
+         */
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
@@ -309,6 +407,14 @@ public class AutomobileActivity extends AppCompatActivity{
             calcAverage.setVisibility(View.VISIBLE);
         }
 
+        /**
+         * Calculates values for all statistical queries.
+         * Updates values
+         * Refreshes fragment data, if required
+         *
+         * {@inheritDoc}
+         * @param result
+         */
         @Override
         protected void onPostExecute(String result) {
             String s;
@@ -326,6 +432,11 @@ public class AutomobileActivity extends AppCompatActivity{
                 s = formatter.format(Double.valueOf(calculateThirtyDaySum()));
             }else{
                 s = getString(R.string.automobileZeroPrice);
+            }
+            automobileMonthlyGasFragment = (AutomobileMonthlyGasFragment)getSupportFragmentManager().findFragmentByTag(MONTHLY_GAS);
+            if(automobileMonthlyGasFragment != null){
+                AutomobileMonthlyGasFragment monthFragment2 = new AutomobileMonthlyGasFragment().newInstance(AutomobileActivity.this);
+                getSupportFragmentManager().beginTransaction().replace(R.id.auto_fragment_container, monthFragment2, MONTHLY_GAS).commit();
             }
 
             sumPrice.setText(getString(R.string.automobileSumPrice, s));

@@ -61,11 +61,11 @@ public class ActivityViewHistory extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_history);
 
-        sortByDateButton = (Button) findViewById(R.id.sortByDateButton);
-        sortByTimeButton = (Button) findViewById(R.id.sortByTimeButton);
-        addActivityButton = (Button) findViewById(R.id.addActivityButton);
-        viewMonthlyStatusButton = (Button) findViewById(R.id.viewMonthlyStatusButton);
-        activityListView = (ListView) findViewById(R.id.activityListView);
+        sortByDateButton = findViewById(R.id.sortByDateButton);
+        sortByTimeButton = findViewById(R.id.sortByTimeButton);
+        addActivityButton = findViewById(R.id.addActivityButton);
+        viewMonthlyStatusButton = findViewById(R.id.viewMonthlyStatusButton);
+        activityListView = findViewById(R.id.activityListView);
 
         activityAdapter = new ActivityAdapter(this);
         activityListView.setAdapter(activityAdapter);
@@ -88,7 +88,7 @@ public class ActivityViewHistory extends Activity {
         }
         activityAdapter.notifyDataSetChanged();
 
-        frameLayoutExists = (findViewById(R.id.frameLayout) != null) ? true : false;
+        frameLayoutExists = findViewById(R.id.frameLayout) != null;
 
         activityListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

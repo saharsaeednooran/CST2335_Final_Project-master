@@ -36,10 +36,10 @@ public class ActivityStats extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
-        okBtn=(Button) findViewById(R.id.okButton);
-        currentMonthTextView=(TextView)findViewById(R.id.currentMonthTextView);
-        prevMonthTextView=(TextView)findViewById(R.id.prevMonthTextView);
-        normProgBar = (ProgressBar) findViewById(R.id.progressBar);
+        okBtn= findViewById(R.id.okButton);
+        currentMonthTextView= findViewById(R.id.currentMonthTextView);
+        prevMonthTextView= findViewById(R.id.prevMonthTextView);
+        normProgBar = findViewById(R.id.progressBar);
         normProgBar.setVisibility(View.VISIBLE);
         normProgBar.setMax(100);
 

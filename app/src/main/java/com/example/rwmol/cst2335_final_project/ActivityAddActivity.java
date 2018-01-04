@@ -51,16 +51,16 @@ public class ActivityAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        runningImgBtn = (ImageButton) findViewById(R.id.runningImageButton);
-        walkingImgBtn = (ImageButton) findViewById(R.id.walkingImageButton);
-        swimmingImgBtn = (ImageButton) findViewById(R.id.swimmingImageButton);
-        skatingImgBtn = (ImageButton) findViewById(R.id.skatingImageButton);
-        bikingImgBtn = (ImageButton) findViewById(R.id.bikingImageButton);
-        seekBar = (SeekBar) findViewById(R.id.seekBar);
-        progressTextView = (TextView) findViewById(R.id.progressTextView);
-        commentEditText = (EditText) findViewById(R.id.commentsEditText);
-        addActivityBtn = (Button) findViewById(R.id.addActivityButton);
-        cancelBtn=(Button)findViewById(R.id.cancelButton);
+        runningImgBtn = findViewById(R.id.runningImageButton);
+        walkingImgBtn = findViewById(R.id.walkingImageButton);
+        swimmingImgBtn = findViewById(R.id.swimmingImageButton);
+        skatingImgBtn = findViewById(R.id.skatingImageButton);
+        bikingImgBtn = findViewById(R.id.bikingImageButton);
+        seekBar = findViewById(R.id.seekBar);
+        progressTextView = findViewById(R.id.progressTextView);
+        commentEditText = findViewById(R.id.commentsEditText);
+        addActivityBtn = findViewById(R.id.addActivityButton);
+        cancelBtn= findViewById(R.id.cancelButton);
 
         //Select Running
         runningImgBtn.setOnClickListener(new View.OnClickListener() {

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Button activityTrackerButton = (Button) findViewById(R.id.activityTrackerButton);
+        Button activityTrackerButton = findViewById(R.id.activityTrackerButton);
         activityTrackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button nutritionTrackerButton = (Button) findViewById(R.id.nutritionTrackerButton);
+        Button nutritionTrackerButton = findViewById(R.id.nutritionTrackerButton);
         nutritionTrackerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button automobileButton = (Button) findViewById(R.id.automobileButton);
+        Button automobileButton = findViewById(R.id.automobileButton);
         automobileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

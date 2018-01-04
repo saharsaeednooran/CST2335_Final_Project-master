@@ -2,38 +2,44 @@
 <string name="app_name">finalProject</string>
 
     <!-- Actvity Tracker -->
-<string name="activityTrackerButtonText">tracker d\'activité</string>
-<string name="startTrackingButton">Commencez à suivre vos exercices</string>
-<string name="welcome_text">Bienvenue sur Activity Tracker</string>
-<string name="selectTextView">Choisissez l\'exercice</string>
-<string name="runningTextView">Courir</string>
-<string name="walkingTextView">Marcher</string>
-<string name="swimmingTextView">La natation</string>
-<string name="bikingTextView">Cyclisme</string>
-<string name="skatingTextView">Patinage</string>
-<string name="durationTextView">Durée</string>
-<string name="commentsTextView">commentaires</string>
-<string name="commentsEditText">Comment était votre exercice?</string>
-<string name="progressTextView">Le progrès</string>
-<string name="addActivityButton">Ajouter une activité</string>
-<string name="addNewActivityButtonText">Ajouter une nouvelle activité</string>
-<string name="viewHistoryButtonText">Afficher l\'historique des activités</string>
-<string name="activityHistoryTextView">Votre historique d\'activité</string>
-<string name="activityDetailsTextView">Détails de l\'activité</string>
-<string name="activityLabel">Activité</string>
-<string name="editButton">Modifier</string>
-<string name="deleteButton">Effacer</string>
-<string name="sortByDateButton">Trier par date</string>
-<string name="sortByTime">Trier par heure</string>
-<string name="monthlyStatusButton">Afficher le statut mensuel</string>
-<string name="monthStatusTextView">Rapport d\'état mensuel</string>
-<string name="CurrentMonthLabel">Temps passé ce mois-ci:</string>
-<string name="prevMonthLabel">Temps passé le mois dernier:</string>
-<string name="okButton">OK</string>
-<string name="cancelButton">Annuler</string>
-<string name="resetButton">Réinitialiser</string>
-<string name="backButton">Retour à la maison</string>
+    <string name="activityTrackerButtonText">tracker d\'activité</string>
+    <string name="startTrackingButton">Commencez à suivre vos exercices</string>
+    <string name="welcome_text">Bienvenue sur Activity Tracker</string>
+    <string name="selectTextView">Choisissez l\'exercice</string>
+    <string name="runningTextView">Courir</string>
+    <string name="walkingTextView">Marcher</string>
+    <string name="swimmingTextView">La natation</string>
+    <string name="bikingTextView">Cyclisme</string>
+    <string name="skatingTextView">Patinage</string>
+    <string name="durationTextView">Durée</string>
+    <string name="commentsTextView">commentaires</string>
+    <string name="commentsEditText">Comment était votre exercice?</string>
+    <string name="progressTextView">Le progrès</string>
+    <string name="addActivityButton">Ajouter une activité</string>
+    <string name="addNewActivityButtonText">Ajouter une nouvelle activité</string>
+    <string name="viewHistoryButtonText">Afficher l\'historique des activités</string>
+    <string name="activityHistoryTextView">Votre historique d\'activité</string>
+    <string name="activityDetailsTextView">Détails de l\'activité</string>
+    <string name="activityLabel">Activité</string>
+    <string name="editButton">Modifier</string>
+    <string name="deleteButton">Effacer</string>
+    <string name="sortByDateButton">Trier par date</string>
+    <string name="sortByTime">Trier par heure</string>
+    <string name="monthlyStatusButton">Afficher le statut mensuel</string>
+    <string name="monthStatusTextView">Rapport d\'état mensuel</string>
+    <string name="CurrentMonthLabel">Temps passé ce mois-ci:</string>
+    <string name="prevMonthLabel">Temps passé le mois dernier:</string>
+    <string name="okButton">OK</string>
+    <string name="cancelButton">Annuler</string>
+    <string name="resetButton">Réinitialiser</string>
+    <string name="backButton">Retour à la maison</string>
+    <string name="activtyTrackerTitle">Activity Tracker</string>
+    <string name="help_tracker">"Version 1.0, by Sahar Saeednooran\n\n
+        Activity tracker is designed to track exercises. The user can add a new activity
+        or view their previous activity history.
+                 "</string>
 
+    <!-- Nutrition Tracker -->
     <string name="nutritionTrackerTitle">Nutrition Tracker</string>
     <string name="food_add_name_hint">Nom de la Nourriture</string>
     <string name="food_add_cals_hint">Calories totales</string>
@@ -83,4 +89,90 @@
     <string name="nutriton_of_string">de</string>
     <string name="toolbar_about">Sur</string>
     <string name="nutrition_none_added">Aucune donnée présente</string>
+    <string name="nutritionTrackerButtonText">Food Nutrition information tracker</string>
+    <string name="nutrition_help">Version 1.0, by Corey MacLeod\n\n
+        An Activity designed to keep track of a user\'s food intake by allowing them to add every
+        food item they eat during the day.
+        \n\n- The user can add the name, calorie count, fat/carbohydrate content and the item will
+        be stored in a database linked to the app. If no values are entered when adding a food item,
+        the value defaults to 0.
+        \n\n- The app will then calculate the user\'s average daily calorie intake and inform them
+        of the total calories they consumed the last day they added food.
+        \n\n- A progress bar shows how much of their daily calorie goal they have consumed the last
+        day they entered a food item.
+        \n\n- The App starts by displaying the Full Food List.
+        \n\n- Selecting one of these food items expands the item to also show its fat and
+        carbohydrate content as well as two buttons that allow the user to either edit or completely
+        delete the food item.
+        \n\n- When the user selects the Summary List button, the Summary List is displayed that
+        shows the total calories, fat, and carbohydrates consumed by the user each day.</string>
+
+    <!-- Automobile Tracker -->
+    <string name="automobileButtonText">Voiture</string>
+    <string name="dateLabel">La date</string>
+    <string name="purchaseDate">date d\'achat</string>
+    <string name="litresLabel">Litres</string>
+    <string name="purchaseLitres">Litre d\'achat</string>
+    <string name="costLabel">Coût</string>
+    <string name="purchaseCost">d\'achat Coût</string>
+    <string name="purchaseKilometers">d\'achat Kilomètres</string>
+    <string name="autoEditButton">Modifier</string>
+    <string name="autoDeleteButton">Effacer</string>
+    <string name="autoCancelButton">Annuler</string>
+    <string name="autoSaveButton">Enregistrer</string>
+
+    <string name="automobile_edit_dialog_title">Modifier l\'achat</string>
+    <string name="automobile_delete_dialog_title">Supprimer l\'achat</string>
+    <string name="automobile_add_dialog_title">Supprimer l\'achat</string>
+
+    <string name="deleteQuestion">Êtes-vous sûr de vouloir supprimer cet achat?</string>
+
+    <string name="averagePrice">Prix moyen du gaz sur 30 jours</string>
+    <string name="totalLitres">Total Litres of Gas over 30 Days</string>
+    <string name="monthlyLabel">Total de litres de gaz sur 30 jours</string>
+
+    <string name="jan">Janvier</string>
+    <string name="feb">Février</string>
+    <string name="mar">Mars</string>
+    <string name="apr">Avril</string>
+    <string name="may">Mai</string>
+    <string name="jun">Juin</string>
+    <string name="jul">Juillet</string>
+    <string name="aug">Août</string>
+    <string name="sep">Septembre</string>
+    <string name="nov">Novembre</string>
+    <string name="oct">Octobre</string>
+    <string name="dec">Décembre</string>
+    <string name="unk">N/A</string>
+
+    <string name="autoClearData">Effacer les données</string>
+    <string name="addPurchase">Ajouter un achat</string>
+    <string name="purchaseHistory">Historique d\'achat</string>
+    <string name="monthlyButton">Résumé mensuel des gaz</string>
+    <string name="automobileTitle">Journal de carburant</string>
+    <string name="automobileFragmentLabel">Date d\'achat:</string>
+    <string name="automobileSumPrice">%1$s Litres</string>
+    <string name="automobileAvgPrice">$%1$s</string>
+    <string name="automobileZeroPrice">$0</string>
+    <string name="automobileLitre">%1$sL</string>
+    <string name="automobileKilo">%1$sKm</string>
+    <string name="automobileCost">$%1$s</string>
+
+    <string name="automobile_help">Version 1.0, by Ryan Molitor\n\n
+        Une activité conçue pour suivre les achats de carburant d\'un utilisateur.
+        \n\n- L\'écran principal affiche les montants calculés pour le prix moyen et le carburant au cours
+                des 30 derniers jours.
+        \n\n- L\'utilisateur a la possibilité d\'ajouter un achat, d\'afficher un résumé mensuel de l\'achat
+                de carburant ou de voir une liste d\'achats.
+        \n\n- Lors de l\'ajout d\'un achat, le programme définit automatiquement la date à aujourd\'hui,
+                bien que cela puisse être annulé par l\'utilisateur. Ceci est fait pour donner à
+                l\'utilisateur un exemple de format de date. L\'utilisateur saisit le prix payé, le nombre
+                de litres achetés et le nombre de kilomètres. Frapper sauvegarder ajoute l\'achat à la base
+                de données et annuler supprime la boîte de dialogue.
+        \n\n- Le résumé mensuel du gaz correspond à la quantité de gaz achetée par l\'utilisateur chaque
+                mois. S\'il n\'y a pas d\'achats, le système affiche N/A.
+        \n\n- L\'historique des achats affiche une liste des dates d\'achat. Quand on est sélectionné, des
+                informations détaillées sont présentées à l\'utilisateur. L\'utilisateur a la possibilité de
+                modifier, supprimer ou annuler.
+        \n\n- Lorsque les valeurs de la base de données sont modifiées, une nouvelle moyenne est calculée.</string>
 </resources>
